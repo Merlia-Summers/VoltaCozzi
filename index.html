@@ -21,7 +21,7 @@
     }
 
     #score {
-      color: white;
+      color: #041f58;
       font-size: 5vw;
       margin-bottom: 10px;
       position: absolute;
@@ -127,8 +127,8 @@
 </div>
 
 <div id="mobileControls">
-  <button onclick="simulateKey('ArrowUp')">↑</button>
-  <button onclick="simulateKey('ArrowDown')">↓</button>
+  <button id="upButton">↑</button>
+  <button id="downButton">↓</button>
   <button onclick="simulateKey(' ')">Booom</button>
   <button id="pauseButton" onclick="togglePause()">⏸️</button>
 </div>
@@ -305,6 +305,16 @@
       loadedCount++;
     };
   });
+
+  // 🔧 Toque contínuo nos botões ↑ ↓
+  const upButton = document.getElementById('upButton');
+  const downButton = document.getElementById('downButton');
+
+  upButton.ontouchstart = () => keys['arrowup'] = true;
+  upButton.ontouchend = () => keys['arrowup'] = false;
+
+  downButton.ontouchstart = () => keys['arrowdown'] = true;
+  downButton.ontouchend = () => keys['arrowdown'] = false;
 </script>
 
 </body>
